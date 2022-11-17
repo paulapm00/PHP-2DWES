@@ -1,0 +1,37 @@
+{# Enlazar este fichero con la plantilla correspondiente #}
+{% extends "plantilla.twig" %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+    <a href="http://localhost/proyectos/2DAW-CLASE-PHP/?controller=users&action=create" class="btn btn-primary">Create</a>
+    
+    <table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Email</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+    {# Bucle en Twig #}
+        {% for u in users %}
+        <tr>
+            <th scope="row">{{ u.id }}</th>
+            <td>{{ u.nombre }}</td>
+            <td>{{ u.apellidos }}</td>
+            <td>{{ u.email }}</td>
+            <td>
+                <a href="http://localhost/proyectos/2DAW-CLASE-PHP/?controller=users&action=edit&id={{ u.id }}" class="btn btn-secondary">Edit</a>
+                <a href="http://localhost/proyectos/2DAW-CLASE-PHP/?controller=users&action=show&id={{ u.id }}" class="btn btn-success">Show</a>
+                <a href="http://localhost/proyectos/2DAW-CLASE-PHP/?controller=users&action=delete&id={{ u.id }}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+    
+{% endblock %}
