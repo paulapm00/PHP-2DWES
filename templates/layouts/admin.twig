@@ -1,72 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
-    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <!-- favicon -->
-	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
-	<!-- google font -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
-
-    {% block style %}{% endblock %}
-</head>
-<body>
-<!--PreLoader-->
-    <div class="loader">
-        <div class="loader-inner">
-            <div class="circle"></div>
-        </div>
-    </div>
-    <!--PreLoader Ends-->
-	
-	<!-- header -->
-	<div class="top-header-area" style="background-color: #051922;" id="sticker">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 col-sm-12 text-center">
-					<div class="main-menu-wrap">
-						<!-- logo -->
-						<div class="site-logo">
-							<a href="{{ URL }}?controller=auth&action=home">
-								<img src="assets/img/logo.png" alt="">
-							</a>
-						</div>
-						<!-- logo -->
-
-						<!-- menu start -->
-						<nav class="main-menu">
-							<ul>
-								<li class="current-list-item"><a href="{{ URL }}?controller=auth&action=home">Home</a></li>
-								
-								<li><a href="{{ URL }}?controller=users&action=index">Usuarios</a></li>
-								<li></li>
-								<li><a href="{{ URL }}?controller=auth&action=logout">Cerrar sesión</a></li>
-								<li>
-									<div class="header-icons">
-										{# <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a> #}
-										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-user"></i> {{ identity.nombre }} {{ identity.apellidos }}</a>
-									</div>
-								</li>
-							</ul>
-						</nav>
-						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-						<div class="mobile-menu"></div>
-						<!-- menu end -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			{% block title %}{% endblock %}
+		</title>
+		<link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+		<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+		<!-- favicon -->
+		<link
+		rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+		<!-- google font -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet"> {% block style %}{% endblock %}
+		</head>
+		<body>
+			<nav>
+				<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="{{ URL }}?controller=index&action=home">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ URL }}?controller=users&action=index">Usuario</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ URL }}?controller=auth&action=logout">Cerrar sesión</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">
+							<i class="fas fa-user"></i>
+							{{ identity.nombre | title }}
+							{{ identity.apellidos | capitalize }}</a>
+					</li>
+				</ul>
+			</nav>
+		</body>
+	</html>
 	<!-- end header -->
-    {% block content %} 
-    
-    {% endblock %}
+	{% block content %}{% endblock %}
 </body>
-
-{% block script %}{% endblock %}
-</html>
+{% block script %}{% endblock %}</html>

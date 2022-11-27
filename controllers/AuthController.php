@@ -57,7 +57,7 @@ require_once 'models/Categoria.php';
             if(isset($_SESSION['admin'])){
                 unset($_SESSION['admin']);
             }
-            header('Location: '.URL.'?controller=auth&action=login');
+            header('Location: '.URL.'?controller=auth&action=home');
         }
 
         public function doLogin(){

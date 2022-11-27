@@ -4,9 +4,11 @@
        
         public static function index(){
             if(isset($_SESSION['identity']) && !isset($_SESSION['admin'])){
+                // var_dump($_SESSION['carrito']);
+                // exit();
                 echo $GLOBALS['twig']->render('carrito/index.twig', 
                     [
-                        'carrito' => $_SESSION['carrito'],
+                        'carrito' => $_SESSION['carrito'][$_SESSION['identity']->id],
                         'identity' => $_SESSION['identity'],
                         'URL' => URL
                     ]
@@ -42,7 +44,7 @@
                 /**
                  * Mi $_SESSION['carrito] contiene un array con los valores seleccionados
                  */
-                $_SESSION['carrito'][] = array(
+                $_SESSION['carrito'][$_SESSION['identity']->id][] = array(
                     "producto_id" => $id,
                     "precio" => $precio,
                     "cantidad" => $cantidad
@@ -56,13 +58,15 @@
 
         public static function deleteAll(){
             if(isset($_SESSION['identity']) && !isset($_SESSION['admin'])){
-                
+                if(isset($_SESSION['carrito'][$_SESSION['identity']->id])){
+                    unset($_SESSION['carrito'][$_SESSION['identity']->id]);
+                }
             }
             header('Location: '.URL.'?controller=carrito&action=index');
         }
 
         public static function update(){
-            if(isset($_SESSION['identity']) && isset($_SESSION['carrito']) && !isset($_SESSION['admin'])){
+            if(isset($_SESSION['identity']) && isset($_SESSION['carrito'][$_SESSION['identity']->id]) && !isset($_SESSION['admin'])){
                 
             }
             header('Location: '.URL.'?controller=carrito&action=index');
