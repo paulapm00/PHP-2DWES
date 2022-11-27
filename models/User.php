@@ -121,6 +121,7 @@
                  */
                 $verify = password_verify($this->password, $user->password);
 
+
                 if($verify){
                     // El password coincide y debo realizar el login
                     if($this->isAdmin($user->id)){

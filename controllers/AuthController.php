@@ -25,10 +25,28 @@ require_once 'models/Categoria.php';
                     ]
                 );
             }else{
-                header('Location: '.URL.'controller=index&action=index');
+                header('Location: '.URL.'?controller=index&action=index');
             }
         }
+        public function register (){
+            echo $GLOBALS['twig']->render('auth/register.twig', 
+                    [
+                        'URL' => URL
+                    ]
+                );
+        }
 
+        public function doRegister(){
+            $user = new User();
+                $user->setNombre($_POST['nombre']);
+                $user->setApellidos($_POST['apellidos']);
+                $user->setEmail($_POST['email']);
+                if(isset($_POST['password'])){
+                    $user->setPassword(password_hash($_POST['password'], PASSWORD_BCRYPT, ['cont' => 4]));
+                }
+                $user->save();//llama a la funcion save del models user e inserta los datos en la bas de datos
+                header('Location: '.URL.'?controller=auth&action=login');
+        }
         /**
          * Funcion que cierra la sesion siempre y cuando encuentre un $_SESSION['identity]
          */
@@ -39,10 +57,11 @@ require_once 'models/Categoria.php';
             if(isset($_SESSION['admin'])){
                 unset($_SESSION['admin']);
             }
-            header('Location: '.URL.'controller=auth&action=login');
+            header('Location: '.URL.'?controller=auth&action=login');
         }
 
         public function doLogin(){
+       
             /**
              * Recojo email y password de mi formulario de login
              * - Verificar si el email y el password coinciden con el de mi base de datos
@@ -67,16 +86,17 @@ require_once 'models/Categoria.php';
              /**
               * Debo distinguir a que vista llevo a mi administrador y a mi cliente. Deben ser distintas
               */
+             
              if($user_ok && is_object($user_ok)){
                 $_SESSION['identity'] = $user_ok;
 
                 if(isset($_SESSION['admin'])){
-                    header('Location: '.URL.'controller=auth&action=home');
+                    header('Location: '.URL.'?controller=auth&action=home');
                 }else{
-                    header('Location: '.URL.'controller=auth&action=welcome');
+                    header('Location: '.URL.'?controller=auth&action=welcome');
                 }
              }else{
-                header('Location: '.URL.'controller=auth&action=login');
+                header('Location: '.URL.'?controller=auth&action=login');
              }
         }
 
@@ -96,7 +116,7 @@ require_once 'models/Categoria.php';
                         ]
                     );
             }else{
-                header('Location: '.URL.'controller=index&action=index');
+                header('Location: '.URL.'?controller=index&action=index');
             }
         }
     }

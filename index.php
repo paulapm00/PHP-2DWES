@@ -52,26 +52,35 @@
      /**
       * Tengo que comprobar si $controller tiene algo
       */
+   
       if(isset($_GET['controller'])){
         $controller = ucfirst($_GET['controller']).'Controller'; // UsersController
+        
 
         /**
          * Una vez he recogido el controlador por URL y lo tengo trasnformado a mi formato
          * Comprobar que existe una clase con ese nombre.
          */
+
         if(class_exists($controller)){
           /**
            * Creo un objeto de la clase $controller y procedo a comprobar el metodo de la URL
-           */
+           */    
           $controller_object = new $controller();
           if(isset($_GET['action'])){
+     
             /**
              * Recoger la accion de mi controlador y guardarla en una variable
              */
             $action = $_GET['action'];
             $controller_object->$action();
+          }else{
+
+            // si controller y no action
+          }
+
         }
-        }else{
+        else{
           /**
            * Error de que no en cuentra la clase o no existe.
            * Lanzar el error 404

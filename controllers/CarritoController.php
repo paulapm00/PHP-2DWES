@@ -48,9 +48,9 @@
                     "cantidad" => $cantidad
                 );
 
-                header('Location: '.URL.'controller=carrito&action=index');
+                header('Location: '.URL.'?controller=carrito&action=index');
             }else{
-                header('Location: '.URL.'controller=auth&action=login');
+                header('Location: '.URL.'?controller=auth&action=login');
             }
         }
 
@@ -58,14 +58,14 @@
             if(isset($_SESSION['identity']) && !isset($_SESSION['admin'])){
                 
             }
-            header('Location: '.URL.'controller=carrito&action=index');
+            header('Location: '.URL.'?controller=carrito&action=index');
         }
 
         public static function update(){
             if(isset($_SESSION['identity']) && isset($_SESSION['carrito']) && !isset($_SESSION['admin'])){
                 
             }
-            header('Location: '.URL.'controller=carrito&action=index');
+            header('Location: '.URL.'?controller=carrito&action=index');
         }
     }
 ?>

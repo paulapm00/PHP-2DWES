@@ -12,22 +12,7 @@
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
-	<!-- fontawesome -->
-	<link rel="stylesheet" href="assets/css/all.min.css">
-	<!-- bootstrap -->
-	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-	<!-- owl carousel -->
-	<link rel="stylesheet" href="assets/css/owl.carousel.css">
-	<!-- magnific popup -->
-	<link rel="stylesheet" href="assets/css/magnific-popup.css">
-	<!-- animate css -->
-	<link rel="stylesheet" href="assets/css/animate.css">
-	<!-- mean menu css -->
-	<link rel="stylesheet" href="assets/css/meanmenu.min.css">
-	<!-- main style -->
-	<link rel="stylesheet" href="assets/css/main.css">
-	<!-- responsive -->
-	<link rel="stylesheet" href="assets/css/responsive.css">
+
     {% block style %}{% endblock %}
 </head>
 <body>
@@ -47,7 +32,7 @@
 					<div class="main-menu-wrap">
 						<!-- logo -->
 						<div class="site-logo">
-							<a href="{{ URL }}controller=auth&action=home">
+							<a href="{{ URL }}?controller=auth&action=home">
 								<img src="assets/img/logo.png" alt="">
 							</a>
 						</div>
@@ -56,10 +41,11 @@
 						<!-- menu start -->
 						<nav class="main-menu">
 							<ul>
-								<li class="current-list-item"><a href="{{ URL }}controller=auth&action=home">Home</a></li>
-								<li><a href="{{ URL }}controller=users&action=index">Usuarios</a></li>
+								<li class="current-list-item"><a href="{{ URL }}?controller=auth&action=home">Home</a></li>
+								
+								<li><a href="{{ URL }}?controller=users&action=index">Usuarios</a></li>
 								<li></li>
-								<li><a href="{{ URL }}controller=auth&action=logout">Cerrar sesión</a></li>
+								<li><a href="{{ URL }}?controller=auth&action=logout">Cerrar sesión</a></li>
 								<li>
 									<div class="header-icons">
 										{# <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a> #}
@@ -81,26 +67,6 @@
     
     {% endblock %}
 </body>
-    <!-- jquery -->
-	<script src="assets/js/jquery-1.11.3.min.js"></script>
-	<!-- bootstrap -->
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<!-- count down -->
-	<script src="assets/js/jquery.countdown.js"></script>
-	<!-- isotope -->
-	<script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
-	<!-- waypoints -->
-	<script src="assets/js/waypoints.js"></script>
-	<!-- owl carousel -->
-	<script src="assets/js/owl.carousel.min.js"></script>
-	<!-- magnific popup -->
-	<script src="assets/js/jquery.magnific-popup.min.js"></script>
-	<!-- mean menu -->
-	<script src="assets/js/jquery.meanmenu.min.js"></script>
-	<!-- sticker js -->
-	<script src="assets/js/sticker.js"></script>
-	<!-- main js -->
-	<script src="assets/js/main.js"></script>
 
 {% block script %}{% endblock %}
 </html>
