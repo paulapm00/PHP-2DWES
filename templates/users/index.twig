@@ -1,17 +1,14 @@
 {# Enlazar este fichero con la plantilla correspondiente #}
 {% extends "layouts/admin.twig" %}
 
-{% block title %}Index
+{% block title %}Floristería |Index
 {% endblock %}
 
 {% block content %}
 
 	<!-- cart -->
-	{# <div class="cart-section mt-150 mb-150">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-md-12">
-					<div class="cart-table-wrap"> #}
+					<div class="m-5">
+					<h5>Usuarios</h5>
 						<table class="table table-dark table-hover text-center">
 							<thead class="">
 								<tr class="table-head-row">
@@ -31,7 +28,7 @@
 										<td class="product-name">{{ u.nombre }}</td>
 										<td class="product-price">{{ u.apellidos }}</td>
 										<td class="product-quantity">{{ u.email }}</td>
-										<td class="product-total">
+										<td class="product-total text-end">
 											<a href="{{ URL }}?controller=users&action=edit&id={{ u.id }}" class="btn btn-secondary">Edit</a>
 											<a href="{{ URL }}?controller=users&action=show&id={{ u.id }}" class="btn btn-success">Show</a>
 											<a href="{{ URL }}?controller=users&action=delete&id={{ u.id }}" class="btn btn-danger">Delete</a>

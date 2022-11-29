@@ -10,26 +10,38 @@
 		<link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 		<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 		<!-- favicon -->
-		<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+		<link rel="shortcut icon" type="image/png" href="assets/img/ramo.png">
 		<link rel="stylesheet" href="assets/estilo.css"> {% block style %}{% endblock %}
 		</head>
 		<body>
-			<nav>
-				<ul class="nav nav-tabs">
+			<nav class="bg-dark">
+				<ul class="nav justify-content-end">
+				<img src="assets/img/ramo.png" style="width: 40px" class="rounded-pill"/>
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="{{ URL }}?controller=index&action=index">Home</a>
+						<a class="nav-link text-white" aria-current="page" href="{{ URL }}?controller=auth&action=welcome">Welcome</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ URL }}?controller=auth&action=register">Crear usuario</a>
+						<a class="nav-link text-white" aria-current="page" href="{{ URL }}?controller=categorias&action=indexFlores">| Flores</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="{{ URL }}?controller=auth&action=logout">Cerrar sesión</a>
+						<a class="nav-link text-white" aria-current="page" href="{{ URL }}?controller=categorias&action=indexRosas">| Rosas</a>
+					</li>
+						<a class="nav-link text-white" aria-current="page" href="{{ URL }}?controller=categorias&action=indexPlantas">| Plantas</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">
+						<a class="nav-link text-white" href="{{ URL }}?controller=carrito&action=index">| Carrito</a>
+					</li>
+					
+					<li class="nav-item ">
+						<a class="nav-link text-white" href="#">
+						
 							<i class="fas fa-user"></i>
+							| <img src="assets/img/perfilok.png" style="width: 10%"></i>
 							{{ identity.nombre | title }}
 							{{ identity.apellidos | capitalize }}</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-white" aria-current="page" href="{{ URL }}?controller=auth&action=logout">| Cerrar sesión</a>
 					</li>
 				</ul>
 			</nav>

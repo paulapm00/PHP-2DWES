@@ -1,35 +1,30 @@
 {% extends "layouts/admin.twig" %}
 
-{% block title %}Home{% endblock %}
-
-{% block style %}
-    
+{% block title %}Floristeria| Home
 {% endblock %}
+
+{% block style %}{% endblock %}
 
 {% block content %}
 
-	<!-- latest news -->
-	<div class="latest-news mt-150 mb-150">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-md-6">
-					<div class="single-latest-news">
-						<a href="{{ URL }}?controller=users&action=index"><div class="latest-news-bg news-bg-1 text-center">
-                            <i class="fas fa-user" style="font-size: 200px; color: black"></i>
-                            </div></a>
-						<div class="news-text-box">
-							<h3><a href="{{ URL }}?controller=users&action=index">Usuarios</a></h3>
-							<p class="excerpt">Administración de usuarios</p>
-							<a href="{{ URL }}?controller=users&action=index" class="read-more-btn">Ver más <i class="fas fa-angle-right"></i></a>
-						</div>
-					</div>
-				</div>
+	<div id="carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="assets/img/ramomorado.jpg" class="d-block w-100" alt="...">
+				<div class="carousel-caption d-none d-md-block ">
+        <h5>Etiqueta de la primera diapositiva</h5>
+        <p>Algún contenido placeholder representativo para la primera diapositiva.</p>
+      </div>
+			</div>
+			<div class="carousel-item">
+				<img src="assets/img/tulipan.png" class="d-block w-100" alt="...">
+			</div>
+			<div class="carousel-item">
+				<img src="assets/img/aloevera.jpg" class="d-block w-100" alt="...">
 			</div>
 		</div>
-	</div>
-	<!-- end latest news -->
-    	<!-- end check out section -->
-{% endblock %}
 
-{% block script %}
-{% endblock %}
+
+	{% endblock %}
+
+	{% block script %}{% endblock %}

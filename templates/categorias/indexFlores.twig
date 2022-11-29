@@ -1,0 +1,33 @@
+{% extends "layouts/private.twig" %}
+
+{% block title %}Floristeria |Flores{% endblock %}
+
+{% block style %}
+    
+{% endblock %}
+
+{% block content %}
+    <!-- cart -->
+	<div class="row product-lists">
+                {% for u in categorias %}
+                    <div class="col-lg-4 col-md-6 text-center {{ u.id }}">
+                        <div class="single-product-item">
+                            <div class="product-image">
+                                <a href="#"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
+                            </div>
+                            <h3>{{ u.nombre }}</h3>
+                            <p class="product-price"><span>Precio por ramo</span> {{ u.precio }} </p>
+                            <p class="product-price"><span>Cantidad diposnible</span> 
+                                {{ u.stock }} </p>
+                                <a href="{{ URL }}?controller=carrito&action=agregar&id={{ u.id }}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Agregar</a>
+                        </div>
+                    </div>
+                {% endfor %}
+			</div>
+		</div>
+	</div>
+	<!-- end cart -->    
+{% endblock %}
+{% block script %}
+
+{% endblock %}

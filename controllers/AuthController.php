@@ -91,8 +91,12 @@ require_once 'models/Categoria.php';
                 $_SESSION['identity'] = $user_ok;
 
                 if(isset($_SESSION['admin'])){
+                    // si nos indentificamos con un usuario admin nos lleva a la pagina de home 
                     header('Location: '.URL.'?controller=auth&action=home');
                 }else{
+                    /**en caso de no ser un usuario adminitrador nos lleva a la pagina de welcome que corresponde 
+                     * a la pagina del cliente
+                     *  */ 
                     header('Location: '.URL.'?controller=auth&action=welcome');
                 }
              }else{

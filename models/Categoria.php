@@ -44,13 +44,13 @@
         // Insertar en la base de datos
         public function save(){
             $db = Database::conectar();
-            $save = $db->query("INSERT INTO categorias (nombre) VALUES ('$this->nombre')");
+            $save = $db->query("INSERT INTO categorias (nombreCategoria) VALUES ('$this->nombre')");
         }
 
         // Actualizar en la base de datos filtrando por id
         public function update(){
             $db = Database::conectar();
-            $update = $db->query("UPDATE categorias SET nombre='$this->nombre' WHERE id=$this->id");
+            $update = $db->query("UPDATE categorias SET nombreCategoria='$this->nombre' WHERE id=$this->id");
         }
 
         // Eliminar en la base de datos filtrando por id
@@ -58,5 +58,22 @@
             $db = Database::conectar();
             $delete = $db->query("DELETE FROM categorias WHERE id=$this->id");
         }
+
+        public function llamarPlantas(){
+            $db = Database::conectar();
+            $findAll = $db->query("SELECT * FROM productos INNER JOIN categorias ON productos.categoria_id = categorias.id WHERE categorias.nombreCategoria= 'Plantas';");
+            return $findAll;
+        }
+        public function llamarFlores(){
+            $db = Database::conectar();
+            $findAll = $db->query("SELECT * FROM productos INNER JOIN categorias ON productos.categoria_id = categorias.id WHERE categorias.nombreCategoria= 'Flores';");
+            return $findAll;
+        }
+        public function llamarRosas(){
+            $db = Database::conectar();
+            $findAll = $db->query("SELECT * FROM productos INNER JOIN categorias ON productos.categoria_id = categorias.id WHERE categorias.nombreCategoria= 'Rosas';");
+            return $findAll;
+        }
     }
+
 ?>

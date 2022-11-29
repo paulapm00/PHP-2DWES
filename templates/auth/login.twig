@@ -1,49 +1,32 @@
 {% extends "layouts/public.twig" %}
 
-{% block title %}Login{% endblock %}
-
-{% block style %}
-
+{% block title %}Login
 {% endblock %}
+
+{% block style %}{% endblock %}
 
 {% block content %}
- 
-	<!-- check out section -->
-	<div class="checkout-section mt-150 mb-150">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8">
-					<div class="checkout-accordion-wrap">
-						<div class="accordion" id="accordionExample">
-						  <div class="card single-accordion">
-						    <div class="card-header" id="headingOne">
-						      <h5 class="mb-0">
-						        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						          Iniciar sesión
-						        </button>
-						      </h5>
-						    </div>
-						    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-						      <div class="card-body">
-						        <div class="billing-address-form">
-						        	<form action="{{ URL }}?controller=auth&action=doLogin" method="POST">
-						        		<p><input type="email" name="email" placeholder="email"></p>
-						        		<p><input type="password" name="password" placeholder="password"></p>
-                        <p><button class="btn btn-secondary" type="submit">Iniciar sesión</button></p>
-						        	</form>
-						        </div>
-						      </div>
-						    </div>
-						  </div>
-						</div>
+	<div class="m-0 mt-5 row justify-content-center">
+		<body class="text-center">
+			<main class="form-signin text-center w-50 m-5">
+				  <form action="{{ URL }}?controller=auth&action=doLogin" method="POST">
+					<img class="mb-4" src="assets/img/login.svg" width="72" height="57">
+					<h1 class="h3 mb-3 fw-normal">Iniciar sesión</h1>
+
+					<div class="form-floating">
+						<input type="email" id="email" name="email" class="form-control" placeholder="nombre@gmail.com">
+						<label for="floatingInput">Email address</label>
 					</div>
-				</div>
-			</div>
-		</div>
+					<div class="form-floating">
+						<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+						<label for="floatingPassword">Password</label>
+					</div>
+					<br>
+					<button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar sesion</button>
+				</form>
+			</main>
+		</body>
 	</div>
-	<!-- end check out section -->
 {% endblock %}
 
-{% block script %}
-
-{% endblock %}
+{% block script %}{% endblock %}

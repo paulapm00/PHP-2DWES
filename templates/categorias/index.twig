@@ -26,7 +26,7 @@
                              {% for u in categorias %}
 								<tr class="table-body-row">
 									<td class="product-remove">{{ u.id }}</td>
-									<td class="product-name">{{ u.nombre }}</td>
+									<td class="product-name">{{ u.nombreCategoria }}</td>
 									<td class="product-total"> 
                                         <a href="{{ URL }}?controller=categorias&action=edit&id={{ u.id }}" class="btn btn-secondary">Edit</a>
                                         <a href="{{ URL }}?controller=categorias&action=show&id={{ u.id }}" class="btn btn-success">Show</a>
