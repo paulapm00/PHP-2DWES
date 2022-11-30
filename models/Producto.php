@@ -74,7 +74,10 @@
         // Me devuelve el elemento filtrado por id
         public function findById(){
             $db = Database::conectar();
-            return $db->query("SELECT * FROM productos WHERE id=$this->id")->fetch_object();
+            $p = $db->query("SELECT * FROM productos WHERE id=$this->id")->fetch_object();
+            // var_dump("SELECT * FROM productos WHERE id=$this->id");
+            // die();
+            return $p;
         }
 
         // Insertar en la base de datos

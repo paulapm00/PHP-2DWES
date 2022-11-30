@@ -154,10 +154,12 @@
         public static function indexFLores(){
             if(isset($_SESSION['identity'])&& !isset($_SESSION['admin'])){
                 $categoria = new Categoria();
+                $productos = new Producto();
                 echo $GLOBALS["twig"]->render(
                     'categorias/indexFlores.twig', 
                     [
                         'categorias' => $categoria->llamarFlores(),
+                        'productos' => $productos->findAll(),
                         'identity' => $_SESSION['identity'],
                         'URL' => URL
                     ]
