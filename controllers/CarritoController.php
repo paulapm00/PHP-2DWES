@@ -3,19 +3,29 @@
     class CarritoController{
        
         public static function index(){
-            if(isset($_SESSION['identity']) && !isset($_SESSION['admin'])){
-                // var_dump($_SESSION['carrito']);
-                //  die();
-                echo $GLOBALS['twig']->render('carrito/index.twig', 
+            if(isset($_SESSION['identity']) && !isset($_SESSION['admin']) && isset ($_SESSION['carrito']) && !empty($_SESSION['carrito'])){
+              
+                echo $GLOBALS['twig']->render('carrito/index.twig',
                     [
                         'carrito' => $_SESSION['carrito'][$_SESSION['identity']->id],
                         'identity' => $_SESSION['identity'],
                         'URL' => URL
                     ]
                 );
-            }
+            
+            }else {$GLOBALS['twig']->render(
+                'carrito/index.twig',
+                [
+                    'identity' => $_SESSION['identity'],
+                    'URL' => URL
+                ]
+                
+                );
+                header('Location: '.URL.'?controller=carrito&action=index');
+                // var_dump('carrito/index.twig');
+                // die();
         }
-
+    }
         /**
          * Funcion es la que agrega un elemento a mi $_SESSION['carrito']
          */

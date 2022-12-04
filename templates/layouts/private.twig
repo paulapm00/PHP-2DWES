@@ -16,38 +16,63 @@
 		<body>
 			<nav class="bg-dark">
 				<ul class="nav justify-content-end">
-				<img src="assets/img/ramo.png" style="width: 40px" class="rounded-pill"/>
+				
+					<img src="assets/img/ramo.png" style="width: 40px" class="rounded-pill"/>
 					<li class="nav-item">
 						<a class="nav-link text-white" aria-current="page" href="{{ URL }}?controller=auth&action=welcome">Welcome</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link text-white" aria-current="page" href="{{ URL }}?controller=categorias&action=indexFlores">| Productos</a>
 					</li>
-					{# <li class="nav-item">
-						<a class="nav-link text-white" aria-current="page" href="{{ URL }}?controller=categorias&action=indexRosas">| Rosas</a>
-					</li>
-						<a class="nav-link text-white" aria-current="page" href="{{ URL }}?controller=categorias&action=indexPlantas">| Plantas</a>
-					</li> #}
 					<li class="nav-item">
-						<a class="nav-link text-white" href="{{ URL }}?controller=carrito&action=index">| Carrito</a>
+						<a class="nav-link text-white" href="{{ URL }}?controller=carrito&action=index">|
+						<img src="assets/img/cart3.png" style="width: 12%"></i>
+						 Carrito</a>
 					</li>
-					
+
 					<li class="nav-item ">
 						<a class="nav-link text-white" href="#">
-						
+
 							<i class="fas fa-user"></i>
-							| <img src="assets/img/perfilok.png" style="width: 10%"></i>
-							{{ identity.nombre | title }}
-							{{ identity.apellidos | capitalize }}</a>
+							|
+							<img src="assets/img/perfilok.png" style="width: 10%"></i>
+						{{ identity.nombre | title }} {{ identity.apellidos | capitalize }}
 					</li>
-					<li class="nav-item">
-						<a class="nav-link text-white" aria-current="page" href="{{ URL }}?controller=auth&action=logout">| Cerrar sesión</a>
-					</li>
-				</ul>
-			</nav>
-			<!-- end header -->
-			{% block content %}{% endblock %}
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link text-white" aria-current="page" href="{{ URL }}?controller=auth&action=logout">| Cerrar sesión</a>
+			</li>
 		</body>
-		{% block script %}{% endblock %}
 	</html>
-</body></html>
+</ul>
+
+</nav><!-- end header -->{% block content %}{% endblock %}</body>{% block script %}{% endblock %}
+<section>
+	<!-- Footer -->
+	<footer
+		class="text-center text-white" style="background-color: black">
+		<!-- Copyright -->
+		<div class="text-center p-3" style="background-color: #404040;">
+			© 2020 Copyright:
+			<a class="text-white" href="https://mdbootstrap.com/">Floristerias.com</a>
+			<ul class="nav justify-content-center list-unstyled d-flex me-5 ">
+
+						<li class="ms-3 align-items-center">
+							<a class="text-muted" href="#"><img src="assets/img/instagram.png " width="30%"></a>
+						</li>
+
+						<li class="ms-3">
+							<a class="text-muted" href="#"><img src="assets/img/facebook.png" width="30%"></a>
+						</li>
+
+						<li class="ms-3">
+							<a class="text-muted" href="#"><img src="assets/img/twitter.png" width="30%"></a>
+						</li>
+
+					</ul>
+		</div>
+		<!-- Copyright -->
+	</footer>
+	<!-- Footer -->
+</section>

@@ -24,9 +24,9 @@
 						  <div class="card single-accordion">
 						    <div class="card-header" id="headingOne">
 						      <h5 class="mb-0">
-						        <h5 class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 						          Crear producto
-						        </h5>
+						        </button>
 						      </h5>
 						    </div>
 						    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -40,7 +40,7 @@
 										<p>
 											<select name="categoria" id="categoria">
 											{% for u in categorias %}
-												<option value="{{ u.id }}">{{ u.nombre }}</option>
+												<option value="{{ u.id }}">{{ u.nombreCategoria }}</option>
 											{% endfor %}
 											</select>
 										</p>

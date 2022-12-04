@@ -54,6 +54,7 @@
                         'URL' => URL
                     ]
                 );
+                
             }else{
                 header('Location: '.URL.'?controller=auth&action=login');
             }

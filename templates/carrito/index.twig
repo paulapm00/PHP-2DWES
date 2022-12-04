@@ -30,15 +30,14 @@
 									<th class="product-image">{{ i.producto_id }} </th>
 									<th class="product-name">{{ i.precio }}</th>
 									<th class="product-price">{{ i.cantidad }}</th>
+
 									{% set total = total + (i.precio * i.cantidad) %}
 								</tr>
 								{% endfor %}
+
 							</tbody>
 						</table>
 						<br>
-						
-						<input type="submit" value="Actualizar carrito">
-						</form>
 						<a href="{{ URL }}?controller=carrito&action=deleteAll" >
                             <input type="submit" value="Eliminar productos">
                         </a>

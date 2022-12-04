@@ -6,18 +6,18 @@
 {% block content %}
 
     <!-- cart -->
+	
 	<div class="cart-section mt-150 mb-150">
 		<div class="container">
          <a href="{{ URL }}?controller=categorias&action=create" >
-         <p><input type="submit" value="Crear"></p>
          </a>
 			<div class="row">
 				<div class="col-lg-8 col-md-12">
 					<div class="cart-table-wrap">
-						<table class="cart-table">
+						<table class="table table-striped text-center">
 							<thead class="cart-table-head">
 								<tr class="table-head-row">
-									<th class="product-remove"></th>
+									<th class="product-remove">Id</th>
 									<th class="product-image">Nombre</th>
 									<th class="product-total"></th>
 								</tr>
@@ -36,6 +36,8 @@
                                 {% endfor %}
 							</tbody>
 						</table>
+						<a href="{{ URL }}?controller=categorias&action=create">
+						 <p><button class="btn btn-info" type="submit">Crear categoria</button></p>
 					</div>
 				</div>
 			</div>

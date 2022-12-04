@@ -50,7 +50,7 @@
         // Actualizar en la base de datos filtrando por id
         public function update(){
             $db = Database::conectar();
-            $update = $db->query("UPDATE categorias SET nombreCategoria='$this->nombre' WHERE id=$this->id");
+            $update = $db->query("UPDATE categorias SET nombreCategoria='$this->nombre' WHERE id=$this->id ");
         }
 
         // Eliminar en la base de datos filtrando por id

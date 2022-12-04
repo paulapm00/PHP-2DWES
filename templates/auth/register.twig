@@ -10,7 +10,7 @@
 	<div class="m-0 mt-5 row justify-content-center">
 		<body class="text-center">
 			<main class="form-signin text-center w-50 m-5">
-				  <form action="{{ URL }}?controller=auth&action=doRegister" method="POST" method="POST">
+				<form action="{{ URL }}?controller=auth&action=doRegister" method="POST" method="POST">
 					<img class="mb-4" src="assets/img/login.svg" width="72" height="57">
 					<h1 class="h3 mb-3 fw-normal">Registro de usuarios</h1>
 
@@ -31,8 +31,20 @@
 						<label for="floatingPassword">Password</label>
 					</div>
 					<br>
-					<button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar sesion</button>
+					{# <div id="liveAlertPlaceholder"></div>
+					<button type="button" class="btn btn-primary" id="liveAlertBtn">Mostrar alerta en vivo</button> #}
+					<button class="w-100 btn btn-lg btn-primary" type="submit">
+						<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+						Registrarse...
+					</button>
 				</form>
+				<br>
+				<button class="w-100 btn btn-lg btn-primary" data-bs-toggle="collapse" data-bs-target="#mensaje">
+					Ocultar información
+				</button>
+				<div id="mensaje" class="collapse show">
+				<p>Registrándote en nuestra tienda podrás realizar pedidos con mayor rapidez</p>
+				</div>
 			</main>
 		</body>
 	</div>
